@@ -8,3 +8,4 @@ D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman J
 D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\bin\Debug\Dustman Jumper.exe.config
 D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\bin\Debug\Dustman Jumper.exe
 D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman Jumper.exe
+D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman_Jumper.Menu.resources
