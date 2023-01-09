@@ -29,9 +29,8 @@ namespace Dustman_Jumper
             }
         }
 
-        public void pickup(Rubbish item)
+        public bool pickup(Rubbish item)
         {
-
             for (int i = 0; i < content.Count(); ++i)
             {
                 if (content[i] == Rubbish.Empty)
@@ -61,19 +60,22 @@ namespace Dustman_Jumper
                     }
 
                     slotsPictures[i].BackgroundImage = picture;
-                    break;
+                    return true;
                 }
-                // else Ekwipuned jest pełen!
             }
+            return false;
         }
-        public void drop(int slot)
+        public Rubbish drop(int slot)
         {
             if (content.ElementAtOrDefault(slot) != Rubbish.Empty)
             {
                 //usuń
+                Rubbish ret = content[slot];
                 content[slot] = Rubbish.Empty;
                 slotsPictures[slot].BackgroundImage = null;
+                return ret;
             }
+            return Rubbish.Empty;
         }
     }
 }

@@ -49,8 +49,11 @@ namespace Dustman_Jumper
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Tło = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.paper1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.butelkaKosz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jar1)).BeginInit();
@@ -68,8 +71,11 @@ namespace Dustman_Jumper
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Tło)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
             // txtScore
@@ -91,7 +97,7 @@ namespace Dustman_Jumper
             // 
             // paper1
             // 
-            this.paper1.BackColor = System.Drawing.Color.LightCyan;
+            this.paper1.BackColor = System.Drawing.Color.Transparent;
             this.paper1.BackgroundImage = global::Dustman_Jumper.Properties.Resources.kartka;
             this.paper1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.paper1.Location = new System.Drawing.Point(184, 166);
@@ -111,12 +117,11 @@ namespace Dustman_Jumper
             this.butelkaKosz.Size = new System.Drawing.Size(58, 74);
             this.butelkaKosz.TabIndex = 23;
             this.butelkaKosz.TabStop = false;
-            this.butelkaKosz.Tag = "dumpster";
-            this.butelkaKosz.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.butelkaKosz_PreviewKeyDown);
+            this.butelkaKosz.Tag = "glassdumpster";
             // 
             // jar1
             // 
-            this.jar1.BackColor = System.Drawing.Color.LightCyan;
+            this.jar1.BackColor = System.Drawing.Color.Transparent;
             this.jar1.BackgroundImage = global::Dustman_Jumper.Properties.Resources.sloik;
             this.jar1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.jar1.Location = new System.Drawing.Point(381, 533);
@@ -273,20 +278,9 @@ namespace Dustman_Jumper
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "platform";
             // 
-            // Tło
-            // 
-            this.Tło.BackColor = System.Drawing.Color.LightCyan;
-            this.Tło.BackgroundImage = global::Dustman_Jumper.Properties.Resources.country_platform_preview;
-            this.Tło.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Tło.Location = new System.Drawing.Point(0, 0);
-            this.Tło.Name = "Tło";
-            this.Tło.Size = new System.Drawing.Size(1046, 689);
-            this.Tło.TabIndex = 12;
-            this.Tło.TabStop = false;
-            // 
             // pictureBox10
             // 
-            this.pictureBox10.BackColor = System.Drawing.Color.LightCyan;
+            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox10.BackgroundImage = global::Dustman_Jumper.Properties.Resources.butelka;
             this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox10.Location = new System.Drawing.Point(722, 397);
@@ -296,13 +290,71 @@ namespace Dustman_Jumper
             this.pictureBox10.TabStop = false;
             this.pictureBox10.Tag = "botle";
             // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.BackgroundImage = global::Dustman_Jumper.Properties.Resources.papierkosz;
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox8.Location = new System.Drawing.Point(245, 523);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(58, 74);
+            this.pictureBox8.TabIndex = 28;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Tag = "paperdumpster";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox9.BackgroundImage = global::Dustman_Jumper.Properties.Resources.plastikkosz;
+            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox9.Location = new System.Drawing.Point(309, 153);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(58, 74);
+            this.pictureBox9.TabIndex = 29;
+            this.pictureBox9.TabStop = false;
+            this.pictureBox9.Tag = "plasticdumpster";
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox11.BackgroundImage = global::Dustman_Jumper.Properties.Resources.kartka;
+            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox11.Location = new System.Drawing.Point(519, 230);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(55, 52);
+            this.pictureBox11.TabIndex = 30;
+            this.pictureBox11.TabStop = false;
+            this.pictureBox11.Tag = "paper";
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackgroundImage = global::Dustman_Jumper.Properties.Resources.country_platform_preview;
+            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox12.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(1046, 689);
+            this.pictureBox12.TabIndex = 31;
+            this.pictureBox12.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
+            this.BackgroundImage = global::Dustman_Jumper.Properties.Resources.country_platform_preview;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1045, 690);
+            this.ClientSize = new System.Drawing.Size(1043, 681);
+            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.pictureBox5);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.player);
+            this.Controls.Add(this.pictureBox11);
+            this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.paper1);
             this.Controls.Add(this.butelkaKosz);
@@ -313,16 +365,8 @@ namespace Dustman_Jumper
             this.Controls.Add(this.StanEnergi3);
             this.Controls.Add(this.StanEnergi2);
             this.Controls.Add(this.StanEnergi1);
-            this.Controls.Add(this.player);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtScore);
-            this.Controls.Add(this.Tło);
+            this.Controls.Add(this.pictureBox12);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(1701, 1249);
             this.MinimumSize = new System.Drawing.Size(1061, 728);
@@ -348,8 +392,11 @@ namespace Dustman_Jumper
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Tło)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -370,7 +417,6 @@ namespace Dustman_Jumper
         private System.Windows.Forms.PictureBox StanEnergi1;
         private System.Windows.Forms.PictureBox StanEnergi2;
         private System.Windows.Forms.PictureBox StanEnergi3;
-        private System.Windows.Forms.PictureBox Tło;
         public System.Windows.Forms.PictureBox EQ1;
         public System.Windows.Forms.PictureBox EQ2;
         public System.Windows.Forms.PictureBox EQ3;
@@ -378,6 +424,10 @@ namespace Dustman_Jumper
         private System.Windows.Forms.PictureBox butelkaKosz;
         private System.Windows.Forms.PictureBox paper1;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pictureBox12;
     }
 }
 
