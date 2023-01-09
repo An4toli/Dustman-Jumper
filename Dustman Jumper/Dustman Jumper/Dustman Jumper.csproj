@@ -49,11 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Equipment.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LVL2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LVL2.Designer.cs">
+      <DependentUpon>LVL2.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
@@ -77,6 +84,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -90,6 +98,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vecteezy_forest-game-background_6502734.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pelnaenergia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pustaenrgia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\country-platform-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\butelka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sloik.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kartka.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plastikkosz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\papierkosz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\szklokosz.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
