@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Dustman_Jumper
 {
+    /// <summary>
+    /// Klasa sluzaca do zarzadzania ekranem konca gry (wygrana)
+    /// </summary>
     public partial class GameWinScreen : Form
     {
         public bool goToNextLevel = false;

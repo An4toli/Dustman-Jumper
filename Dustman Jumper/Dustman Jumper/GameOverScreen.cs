@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Dustman_Jumper
 {
+    /// <summary>
+    /// Klasa sluzaca do zarzadzanai ekranem konca gry (przegrana)
+    /// </summary>
     public partial class GameOverScreen : Form
     {
         public GameOverScreen()
