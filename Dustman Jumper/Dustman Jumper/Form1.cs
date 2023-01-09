@@ -12,6 +12,7 @@ namespace Dustman_Jumper
 {
     public partial class Form1 : Form
     {
+        Equipment EQ = new Equipment();
         bool goLeft, goRight, jumping, isGameOver;
         // zmienne dla postaci gracza
         int jumpSpeed;
@@ -28,13 +29,16 @@ namespace Dustman_Jumper
         public Form1()
         {
             InitializeComponent();
-           
+
+            //inicjalizacja ekwipunku
+            PictureBox[] slots = { EQ1, EQ2, EQ3 };
+            EQ.setup(slots);
         }
 
-         
+
 
         //ładowanie kojnego poziomu
-      
+
         private void Form1_Load(object sender, EventArgs e)
         {
             /*
@@ -45,7 +49,7 @@ namespace Dustman_Jumper
             */
 
         }
-        
+
 
         private void MainGameTimerEvent(object sender, EventArgs e)
         {
@@ -55,7 +59,7 @@ namespace Dustman_Jumper
             player.Top += jumpSpeed;
 
             //sprawdzanie ruchu gracza zgodnie z zegarem
-            if(goLeft == true)
+            if (goLeft == true)
             {
                 player.Left -= playerSpeed;
             }
@@ -64,12 +68,12 @@ namespace Dustman_Jumper
                 player.Left += playerSpeed;
             }
 
-            if(jumping == true && force < 0)
+            if (jumping == true && force < 0)
             {
                 jumping = false;
             }
 
-            if(jumping == true)
+            if (jumping == true)
             {
                 jumpSpeed = -8;
                 force -= 1;
@@ -79,80 +83,51 @@ namespace Dustman_Jumper
                 jumpSpeed = 10;
             }
 
-            foreach( Control x in this.Controls)
+            foreach (Control x in this.Controls)
             {
-                if (x is PictureBox)
+                if (!(x is PictureBox))
+                    continue;
+
+                if (!player.Bounds.IntersectsWith(x.Bounds))
+                    continue;
+
+                if (!(x.Visible))
+                    continue;
+
+                string tag = (string)x.Tag;
+
+                switch(tag)
                 {
-                    if ((string)x.Tag == "platform")
-                    {
-                        if (player.Bounds.IntersectsWith(x.Bounds)) //jak stanie na platformie to moze znowu skakac
+                    
+                    case "platform":
                         {
                             force = 8;
                             player.Top = x.Top - player.Height;
-                        }
 
-                        x.BringToFront(); //platformy z przodu
-                    }
-                    if ((string)x.Tag == "botle") //jesli interakcja ze smieciami DODAC INNE TAGI SMIECI!!!!
-                    {
-                        if (player.Bounds.IntersectsWith(x.Bounds) && x.Visible)
-                        {                                            
-                            setRubbish = 1;
-                            //tutaj FUNCKAJ OD ZBIERANIA ŚMIECI
-                            PickingRubbish(x);
+                            x.BringToFront(); //platformy z przodu
+
+                            break;
                         }
-                    }
-                    if ((string)x.Tag == "jar") //jesli interakcja ze smieciami DODAC INNE TAGI SMIECI!!!!
-                    {
-                        if (player.Bounds.IntersectsWith(x.Bounds) && x.Visible)
+                    case "botle":
                         {
-                            setRubbish = 2;
-                            //tutaj FUNCKAJ OD ZBIERANIA ŚMIECI
-                            PickingRubbish(x);
+                            x.Visible = false;
+                            EQ.pickup(Rubbish.Botle);
+                            break;
                         }
-                    }
-                    if ((string)x.Tag == "paper") //jesli interakcja ze smieciami DODAC INNE TAGI SMIECI!!!!
-                    {
-                        if (player.Bounds.IntersectsWith(x.Bounds) && x.Visible)
+                    case "jar":
                         {
-                            setRubbish = 3;
-                            //tutaj FUNCKAJ OD ZBIERANIA ŚMIECI
-                            PickingRubbish(x);
+                            x.Visible = false;
+                            EQ.pickup(Rubbish.Jar);
+                            break;
                         }
-                    }
-
-                    
-                    if((string)x.Tag == "dumpster" && player.Bounds.IntersectsWith(x.Bounds))
+                    case "paper":
                         {
-                        if((string)x.Name == "butelkaKosz")
-                            {
-                                
-                            
-                                if (plastik1)
-                                {
-                                EQ1.BackgroundImage = null;
-                                }
-                               /*
-                             if (EQ2butelka.Visible && plastik2) 
-                                {
-                                    EQ2butelka.Visible = false;
-                                    EQ2.Visible = true;
-                                }
-                            else if (EQ3butelka.Visible && plastik3)
-                            {
-                                EQ3butelka.Visible = false;
-                                EQ3.Visible = true;
-                            }
-
-
-                            else
-                                    Console.WriteLine("zle wyrzucone");
-                              */
-                            }
+                            x.Visible = false;
+                            EQ.pickup(Rubbish.Paper);
+                            break;
                         }
-                        
-
                 }
+
             }
 
 
@@ -161,15 +136,15 @@ namespace Dustman_Jumper
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.Left)
             {
                 goLeft = true;
             }
-            if(e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.Right)
             {
                 goRight = true;
             }
-            if(e.KeyCode == Keys.Up && jumping == false)
+            if (e.KeyCode == Keys.Up && jumping == false)
             {
                 jumping = true;
             }
@@ -209,7 +184,7 @@ namespace Dustman_Jumper
 
         private void butelkaKosz_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if(e.KeyCode == Keys.D1)
+            if (e.KeyCode == Keys.D1)
             {
                 if (EQ1.BackgroundImage == Properties.Resources.butelka && e.KeyCode == Keys.D1)
                     plastik1 = true;
@@ -226,7 +201,7 @@ namespace Dustman_Jumper
             {
                 goRight = false;
             }
-            if(jumping == true)
+            if (jumping == true)
             {
                 jumping = false;
             }
@@ -249,7 +224,7 @@ namespace Dustman_Jumper
             */
         }
 
-        private void RestartGame ()
+        private void RestartGame()
         {
             jumping = false;
             goLeft = false;
@@ -260,10 +235,10 @@ namespace Dustman_Jumper
 
             txtScore.Text = "Punkty: " + score;
 
-            foreach(Control x in this.Controls)
+            foreach (Control x in this.Controls)
             {
                 //ustawienie wszystkich przedmiotów jako widzialne
-                if( x is PictureBox && x.Visible == false)
+                if (x is PictureBox && x.Visible == false)
                 {
                     x.Visible = true;
                 }
@@ -278,23 +253,23 @@ namespace Dustman_Jumper
 
         private void PickingRubbish(Control x)  //funkcja kontrolujaca zbieranie smieci (znikanie z planszy i pojawainie w eq)
         {
-           
+
             if (EQ1Wolne)
-                {
+            {
                 x.Visible = false;
                 switch (setRubbish)
-                    {
+                {
 
-                        case 1:
+                    case 1:
 
-                            EQ1.BackgroundImage = Properties.Resources.butelka;
-                           EQ1Wolne = false;
-                            break;
+                        EQ1.BackgroundImage = Properties.Resources.butelka;
+                        EQ1Wolne = false;
+                        break;
 
-                        case 2:
+                    case 2:
                         EQ1.BackgroundImage = Properties.Resources.sloik;
                         EQ1Wolne = false;
-                            break;
+                        break;
                     case 3:
                         EQ1.BackgroundImage = Properties.Resources.kartka;
                         EQ1Wolne = false;
@@ -303,18 +278,18 @@ namespace Dustman_Jumper
 
 
                 }
-                }
-             else if (EQ2Wolne)
-                {
+            }
+            else if (EQ2Wolne)
+            {
                 x.Visible = false;
                 switch (setRubbish)
-                    {
+                {
 
-                        case 1:
+                    case 1:
 
-                            EQ2.BackgroundImage = Properties.Resources.butelka;
-                            EQ2Wolne = false;
-                            break;
+                        EQ2.BackgroundImage = Properties.Resources.butelka;
+                        EQ2Wolne = false;
+                        break;
 
                     case 2:
                         EQ2.BackgroundImage = Properties.Resources.sloik;
@@ -327,9 +302,9 @@ namespace Dustman_Jumper
 
 
                 }
-                }
-                else if (EQ3Wolne)
-                {
+            }
+            else if (EQ3Wolne)
+            {
                 x.Visible = false;
                 switch (setRubbish)
                 {
@@ -352,12 +327,12 @@ namespace Dustman_Jumper
             }
 
 
-            
 
-         }
 
-            
-           
+        }
+
+
+
 
     }
 }

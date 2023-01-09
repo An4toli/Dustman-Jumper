@@ -20,8 +20,11 @@ namespace Dustman_Jumper
         private void LoadGame(object sender, EventArgs e)
         {
             Form1 gameWindow = new Form1();
-
+            gameWindow.Location = this.Location;
+            gameWindow.StartPosition = FormStartPosition.Manual;
+            gameWindow.FormClosing += delegate { this.Show(); };
             gameWindow.Show();
+            this.Hide();
         }
     }
 }

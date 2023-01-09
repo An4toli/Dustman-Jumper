@@ -3,99 +3,77 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Dustman_Jumper
 {
-    class Equipment    // pruba przeniesienia ekwipunku do osbnej klasy
+    public enum Rubbish
     {
-        /*
-        bool EQ1Wolne = true;
-        bool EQ2Wolne = true;
-        bool EQ3Wolne = true;
-        
+        Botle,
+        Paper,
+        Jar,
+        Empty
+    }
 
+    class Equipment    // próba przeniesienia ekwipunku do osbnej klasy
+    {
+        List<Rubbish> content = new List<Rubbish>();
+        List<PictureBox> slotsPictures = new List<PictureBox>();
 
-        public void PickingRubbish(Control x)  //funkcja kontrolujaca zbieranie smieci (znikanie z planszy i pojawainie w eq)
+        public void setup(PictureBox[] slots)
+        {
+            for (int i = 0; i < slots.Length; ++i)
+            {
+                slotsPictures.Add(slots[i]);
+                content.Add(Rubbish.Empty);
+            }
+        }
+
+        public void pickup(Rubbish item)
         {
 
-            if (EQ1Wolne)
+            for (int i = 0; i < content.Count(); ++i)
             {
-                
-               
-                x.Visible = false;
-                switch (form.setRubbish)
+                if (content[i] == Rubbish.Empty)
                 {
+                    content[i] = item;
 
-                    case 1:
+                    System.Drawing.Bitmap picture = null;
+                    switch (item)
+                    {
+                        case Rubbish.Botle:
+                            {
+                                picture = Properties.Resources.butelka;
+                                break;
+                            }
 
-                        EQ1.BackgroundImage = Properties.Resources.butelka;
-                        EQ1Wolne = false;
-                        break;
+                        case Rubbish.Paper:
+                            {
+                                picture = Properties.Resources.kartka;
+                                break;
+                            }
 
-                    case 2:
-                        EQ1.BackgroundImage = Properties.Resources.sloik;
-                        EQ1Wolne = false;
-                        break;
-                    case 3:
-                        EQ1.BackgroundImage = Properties.Resources.kartka;
-                        EQ1Wolne = false;
-                        break;
+                        case Rubbish.Jar:
+                            {
+                                picture = Properties.Resources.sloik;
+                                break;
+                            }
+                    }
 
-
-
+                    slotsPictures[i].BackgroundImage = picture;
+                    break;
                 }
+                // else Ekwipuned jest pełen!
             }
-            else if (EQ2Wolne)
-            {
-                x.Visible = false;
-                switch (setRubbish)
-                {
-
-                    case 1:
-
-                        EQ2.BackgroundImage = Properties.Resources.butelka;
-                        EQ2Wolne = false;
-                        break;
-
-                    case 2:
-                        EQ2.BackgroundImage = Properties.Resources.sloik;
-                        EQ2Wolne = false;
-                        break;
-                    case 3:
-                        EQ2.BackgroundImage = Properties.Resources.kartka;
-                        EQ2Wolne = false;
-                        break;
-
-
-                }
-            }
-            else if (EQ3Wolne)
-            {
-                x.Visible = false;
-                switch (setRubbish)
-                {
-
-                    case 1:
-
-                        EQ3.BackgroundImage = Properties.Resources.butelka;
-                        EQ3Wolne = false;
-                        break;
-
-                    case 2:
-                        EQ3.BackgroundImage = Properties.Resources.sloik;
-                        EQ3Wolne = false;
-                        break;
-                    case 3:
-                        EQ3.BackgroundImage = Properties.Resources.kartka;
-                        EQ3Wolne = false;
-                        break;
-                }
-            }
-
-
-
-
         }
-        */
+        public void drop(int slot)
+        {
+            if (content.ElementAtOrDefault(slot) != Rubbish.Empty)
+            {
+                //usuń
+                content[slot] = Rubbish.Empty;
+                slotsPictures[slot].BackgroundImage = null;
+            }
+        }
     }
 }
