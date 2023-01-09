@@ -1,6 +1,4 @@
 D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\bin\Debug\Dustman Jumper.pdb
-D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman Jumper.csprojAssemblyReference.cache
-D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman_Jumper.Form1.resources
 D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman_Jumper.Properties.Resources.resources
 D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman Jumper.csproj.GenerateResource.cache
 D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman Jumper.csproj.CoreCompileInputs.cache
@@ -9,3 +7,9 @@ D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\bin\Debug\Dustman J
 D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\bin\Debug\Dustman Jumper.exe
 D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman Jumper.exe
 D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman_Jumper.Menu.resources
+D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman_Jumper.GameOverScreen.resources
+D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman_Jumper.Level1.resources
+D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman Jumper.csprojAssemblyReference.cache
+D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman_Jumper.GameWinScreen.resources
+D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman_Jumper.Level2.resources
+D:\Projekt JPWP\Dustman-Jumper\Dustman Jumper\Dustman Jumper\obj\Debug\Dustman_Jumper.Level3.resources

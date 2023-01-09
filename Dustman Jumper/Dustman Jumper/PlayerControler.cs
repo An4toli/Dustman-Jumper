@@ -8,10 +8,12 @@ using static System.Windows.Forms.Control;
 
 namespace Dustman_Jumper
 {
-    class PlayerControler
+    public class PlayerControler
     {
         Equipment EQ = new Equipment();
-        bool goLeft, goRight, jumping, isGameOver;
+        public Life life = new Life();
+        
+        bool goLeft, goRight, jumping;
         // zmienne dla postaci gracza
         int jumpSpeed = 0;
         int force = 0;
@@ -21,16 +23,25 @@ namespace Dustman_Jumper
              button2pressed = false,
              button3pressed = false;
         PictureBox player;
+        int itemsToCollect = 0;
+        public bool isGameOver;
 
-        public void setup(PictureBox player, PictureBox[] slots)
+        public void setup(PictureBox player, PictureBox[] slots, PictureBox[] lifes, int itemsToCollect)
         {
             this.player = player;
             EQ.setup(slots);
+            life.setup(lifes);
+
+            this.itemsToCollect = itemsToCollect;
+            isGameOver = false;
         }
 
 
         public void update(ControlCollection controls)
         {
+            if (isGameOver)
+                return;
+
             player.Top += jumpSpeed;
 
             //sprawdzanie ruchu gracza zgodnie z zegarem
@@ -79,9 +90,6 @@ namespace Dustman_Jumper
                         {
                             force = 8;
                             player.Top = x.Top - player.Height;
-
-
-
                             break;
                         }
                     case "botle":
@@ -107,11 +115,16 @@ namespace Dustman_Jumper
                             if (clickedSlot == -1)
                                 break;
 
-                            if (EQ.drop(clickedSlot) == Rubbish.Paper)
+                            Rubbish rub = EQ.drop(clickedSlot);
+                            if (rub == Rubbish.Paper)
+                            {
                                 score++;
-                            //else
+                                break;
+                            }
+                            if (rub == Rubbish.Empty)
+                                break;
 
-
+                            life.takeLife();
                             break;
                         }
                     case "glassdumpster":
@@ -119,8 +132,16 @@ namespace Dustman_Jumper
                             if (clickedSlot == -1)
                                 break;
 
-                            if (EQ.drop(clickedSlot) == Rubbish.Jar)
+                            Rubbish rub = EQ.drop(clickedSlot);
+                            if (rub == Rubbish.Jar)
+                            {
                                 score++;
+                                break;
+                            }
+                            if (rub == Rubbish.Empty)
+                                break;
+
+                            life.takeLife();
                             break;
                         }
                     case "plasticdumpster":
@@ -128,24 +149,42 @@ namespace Dustman_Jumper
                             if (clickedSlot == -1)
                                 break;
 
-                            if (EQ.drop(clickedSlot) == Rubbish.Botle)
+
+                            Rubbish rub = EQ.drop(clickedSlot);
+                            if (rub == Rubbish.Botle)
+                            {
                                 score++;
+                                break;
+                                    }
+                            if (rub == Rubbish.Empty)
+                                break;
+
+                            life.takeLife();
                             break;
                         }
                 }
             }
+
+            // przegrana
+            if (life.stillAlive() == false)
+                isGameOver = true;
+
+            //wygrana
+            if (EQ.isEmpty() && EQ.collectedItemsAmount == itemsToCollect)
+                isGameOver = true;
+
         }
         public void KeyPressed(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.A)
             {
                 goLeft = true;
             }
-            if (e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.D)
             {
                 goRight = true;
             }
-            if (e.KeyCode == Keys.Up && jumping == false)
+            if (e.KeyCode == Keys.W && jumping == false)
             {
                 jumping = true;
             }
@@ -165,11 +204,11 @@ namespace Dustman_Jumper
 
         public void KeyReleased(KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Left)
+            if (e.KeyCode == Keys.A)
             {
                 goLeft = false;
             }
-            if (e.KeyCode == Keys.Right)
+            if (e.KeyCode == Keys.D)
             {
                 goRight = false;
             }

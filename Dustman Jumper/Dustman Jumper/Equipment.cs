@@ -19,6 +19,7 @@ namespace Dustman_Jumper
     {
         List<Rubbish> content = new List<Rubbish>();
         List<PictureBox> slotsPictures = new List<PictureBox>();
+        public int collectedItemsAmount = 0;
 
         public void setup(PictureBox[] slots)
         {
@@ -60,6 +61,8 @@ namespace Dustman_Jumper
                     }
 
                     slotsPictures[i].BackgroundImage = picture;
+                    //kazde zebranie przedmiotu do eq zwieksza ilosc
+                    collectedItemsAmount++;
                     return true;
                 }
             }
@@ -76,6 +79,17 @@ namespace Dustman_Jumper
                 return ret;
             }
             return Rubbish.Empty;
+        }
+
+        //ekwipunek sprawdza czy eq jest puste
+        public bool isEmpty()
+        {
+            for (int i = 0; i < content.Count(); ++i)
+            {
+                if (content[i] != Rubbish.Empty)
+                    return false;
+            }
+            return true;
         }
     }
 }
