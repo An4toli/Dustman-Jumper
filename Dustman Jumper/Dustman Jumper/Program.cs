@@ -17,6 +17,7 @@ namespace Dustman_Jumper
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Menu());
+            ///zaczyna sie od uruchomienia Menu
         }
     }
 }

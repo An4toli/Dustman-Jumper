@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace Dustman_Jumper
 {
+    /// <summary>
+    /// Zawiera mozliwe stany ekwipunku
+    /// </summary>
     public enum Rubbish
     {
         Botle,
@@ -14,7 +17,9 @@ namespace Dustman_Jumper
         Jar,
         Empty
     }
-
+    /// <summary>
+    /// Klasa do zazadzania ekwipunkiem podmienia obrazkow i usuwanie przedmiotw z eq
+    /// </summary>
     class Equipment    // próba przeniesienia ekwipunku do osbnej klasy
     {
         List<Rubbish> content = new List<Rubbish>();
@@ -30,6 +35,11 @@ namespace Dustman_Jumper
             }
         }
 
+        /// <summary>
+        /// funckja pozwalajaca na podnoszenie przedmiotow i pojawia sie ich w eq
+        /// </summary>
+        /// <param name="item"> parametr okresjacy jaki przedmiot z typu enum zostal posniesiony</param>
+        /// <returns>zwraca informacje czy przedmiot zostal podniesiony</returns>
         public bool pickup(Rubbish item)
         {
             for (int i = 0; i < content.Count(); ++i)
@@ -68,6 +78,11 @@ namespace Dustman_Jumper
             }
             return false;
         }
+        /// <summary>
+        /// funkcja sluzacja do pozbywania sie przedmiot z eq (wyrzucania do kosza)
+        /// </summary>
+        /// <param name="slot">parametr okreslajacy miejsce w eq i co sie w nim znajduje</param>
+        /// <returns>zwraca co za przedmiot zostal wyrzucony</returns>
         public Rubbish drop(int slot)
         {
             if (content.ElementAtOrDefault(slot) != Rubbish.Empty)
@@ -82,6 +97,10 @@ namespace Dustman_Jumper
         }
 
         //ekwipunek sprawdza czy eq jest puste
+        /// <summary>
+        /// funkja sprawdzajaca czy ekwpinuek jest pusty
+        /// </summary>
+        /// <returns>zwraca wartosc true jesli wszystkie sloty w ekwipunku sa puste</returns>
         public bool isEmpty()
         {
             for (int i = 0; i < content.Count(); ++i)

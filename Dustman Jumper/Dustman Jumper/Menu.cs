@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace Dustman_Jumper
 {
+    /// <summary>
+    /// typ wyliczeniowy zawieracy mozliwe stany gry
+    /// </summary>
     public enum LevelResult
     {
         Win,
@@ -18,6 +21,9 @@ namespace Dustman_Jumper
         Restart
     }
 
+    /// <summary>
+    /// klasa zawierajaca w sobie mozliwosc kontrolowania gry (wczytywanie kolejnych poziomow)
+    /// </summary>
     public partial class Menu : Form
     {
         int score = 0;

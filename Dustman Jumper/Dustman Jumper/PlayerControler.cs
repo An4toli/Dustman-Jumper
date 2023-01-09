@@ -8,12 +8,19 @@ using static System.Windows.Forms.Control;
 
 namespace Dustman_Jumper
 {
+    /// <summary>
+    /// Klasa zawieraja informacje dotyczace gracza: poruszanie interakcje z przedmiotami oznaczonymi tagami
+    /// </summary>
     public class PlayerControler
     {
         Equipment EQ = new Equipment();
         public Life life = new Life();
-        
+
+        /// <summary>
+        /// zmienne zawierjace informacje o ruchu
+        /// </summary>
         bool goLeft, goRight, jumping;
+       
         // zmienne dla postaci gracza
         int jumpSpeed = 0;
         int force = 0;
@@ -26,6 +33,13 @@ namespace Dustman_Jumper
         int itemsToCollect = 0;
         public bool isGameOver;
 
+        /// <summary>
+        /// funckja ktora pozwala na przekazanie parametrow
+        /// </summary>
+        /// <param name="player"> przekazuje postac gracza</param>
+        /// <param name="slots">przekazuje referencje do ekpinku</param>
+        /// <param name="lifes">przekazuje referencje do ilosci zyc/energi</param>
+        /// <param name="itemsToCollect">referencje ile przedmiotow zostalo do zebrania</param>
         public void setup(PictureBox player, PictureBox[] slots, PictureBox[] lifes, int itemsToCollect)
         {
             this.player = player;
@@ -36,7 +50,10 @@ namespace Dustman_Jumper
             isGameOver = false;
         }
 
-
+        /// <summary>
+        /// funkcja wykonywana zgodnie z zegarem w kazdej klatce
+        /// </summary>
+        /// <param name="controls"> referencje do obrazkow aby gracz mogl wchodzic z nimi w interakcje</param>
         public void update(ControlCollection controls)
         {
             if (isGameOver)
@@ -174,6 +191,10 @@ namespace Dustman_Jumper
                 isGameOver = true;
 
         }
+        /// <summary>
+        /// wykrywanie nacisniecia klawisza
+        /// </summary>
+        /// <param name="e"> wydarzenie zwiazane z nacisnieciem klawisza</param>
         public void KeyPressed(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.A)
@@ -202,6 +223,10 @@ namespace Dustman_Jumper
                 button3pressed = true;
         }
 
+        /// <summary>
+        /// puszczenie klawisza
+        /// </summary>
+        /// <param name="e">wydarzenia zwiazane z puszczeniem klawisza</param>
         public void KeyReleased(KeyEventArgs e)
         {
             if (e.KeyCode == Keys.A)
@@ -230,6 +255,10 @@ namespace Dustman_Jumper
 
         }
 
+        /// <summary>
+        /// funckja zwracajaca wartosc liczobwa zaleznie od tego jaki klawisz zostal nacisniety
+        /// </summary>
+        /// <returns></returns>
         private int getClickedSlot()
         {
             if (button1pressed) return 0;

@@ -10,10 +10,17 @@ using System.Windows.Forms;
 
 namespace Dustman_Jumper
 {
+    /// <summary>
+    /// Klasa zawieraja informacje o poziomie 1
+    /// </summary>
     public partial class Level1 : LevelForm
     {
         //liczba przedmiotw do podniesienia na kazdym lvlu
+        /// <summary>
+        /// Określa ile przedmiotów jest do podniesienia na kazdym poziomie
+        /// </summary>
         const int itemsToCollect = 4;
+        
 
         public Level1()
         {
@@ -21,7 +28,9 @@ namespace Dustman_Jumper
 
             //inicjalizacja ekwipunku
             PictureBox[] slots = { EQ1, EQ2, EQ3 };
+            ///inicjalizacja ekwpinku
             PictureBox[] lifes = { L1, L2, L3 };
+            ///inicjalizacja zyc
             playerControler.setup(player, slots, lifes, itemsToCollect);
         }
 

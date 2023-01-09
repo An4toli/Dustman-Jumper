@@ -10,9 +10,16 @@ using System.Windows.Forms;
 
 namespace Dustman_Jumper
 {
+    /// <summary>
+    /// klasa zawierajaca informacje o poziomie 2
+    /// </summary>
     public partial class Level2 : LevelForm
     {
+        /// <summary>
+        /// Określa ile przedmiotów jest do podniesienia na kazdym poziomie
+        /// </summary>
         const int itemsToCollect = 4;
+        
         public Level2()
         {
             InitializeComponent();
